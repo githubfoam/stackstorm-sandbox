@@ -18,4 +18,6 @@ Travis (.com)  branch:
 ~~~~
 ~~~~
 https://github.com/StackStorm/st2
+If This Then That, also known as IFTTT 
+https://en.wikipedia.org/wiki/IFTTT
 ~~~~
