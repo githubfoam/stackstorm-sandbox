@@ -11,7 +11,8 @@ vagrant plugin install vagrant-libvirt #The vagrant-libvirt plugin is required w
 vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with different providers
 
 # https://app.vagrantup.com/ubuntu/boxes/groovy64
-vagrant box add "ubuntu/groovy64" --provider=libvirt
+vagrant box add "ubuntu/groovy64" --provider=virtualbox
+vagrant mutate "ubuntu/groovy64"  libvirt
 vagrant init --template Vagrantfile.provision.bash.erb
 vagrant up --provider=libvirt "vg-stackstorm-02"
 
