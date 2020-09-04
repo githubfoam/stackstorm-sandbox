@@ -1,6 +1,9 @@
 IMAGE := alpine/fio
 APP:="scripts/archlinux-req.sh"
 
+deploy-stackstorm-ubuntu:
+	bash scripts/deploy-stackstorm-ubuntu.sh
+
 deploy-stackstorm-centos:
 	bash scripts/deploy-stackstorm-centos.sh
 

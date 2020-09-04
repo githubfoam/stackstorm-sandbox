@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
   end
 
              config.vm.define "vg-stackstorm-01" do |k8scluster|
-                k8scluster.vm.box = "debian/buster64"
+                k8scluster.vm.box = "centos/8"
                 k8scluster.vm.hostname = "vg-stackstorm-01"
                 k8scluster.vm.network "private_network", ip: "192.168.50.15"
                 #Disabling the default /vagrant share can be done as follows:
@@ -23,6 +23,19 @@ Vagrant.configure(2) do |config|
                 end
                 k8scluster.vm.provision :shell, path: "provisioning/bootstrap.sh"
               end
+
+             config.vm.define "vg-stackstorm-02" do |k8scluster|
+                k8scluster.vm.box = "ubuntu/groovy64"
+                k8scluster.vm.hostname = "vg-stackstorm-02"
+                k8scluster.vm.network "private_network", ip: "192.168.50.16"
+                #Disabling the default /vagrant share can be done as follows:
+                k8scluster.vm.synced_folder ".", "/vagrant", disabled: true
+                k8scluster.vm.provider "virtualbox" do |vb|
+                    vb.name = "vbox-stackstorm-02"
+                    vb.memory = "4096"
+                end
+                k8scluster.vm.provision :shell, path: "provisioning/bootstrap.sh"
+              end              
 
 
 end
